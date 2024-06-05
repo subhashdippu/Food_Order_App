@@ -1,7 +1,23 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { MdOutlineAddIcCall } from "react-icons/md";
 const Navbar = () => {
 
+    const [isSticky, setStricky] = useState(false);
+    useEffect(() => {
+        const handleScroll = () => {
+            const offSet = window.scrollY
+            if (offSet > 0) {
+                setStricky(true)
+            }
+            else {
+                setStricky(false)
+            }
+        }
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.addEventListener("scroll", handleScroll)
+        }
+    })
     const navItems = (
         <>
             <li><a href="/" >Home</a></li>
@@ -29,8 +45,8 @@ const Navbar = () => {
         </>
     );
     return (
-        <div>
-            <div className="navbar bg-neutral text-neutral-content">
+        <header className="max-2-screen-2xl mx-auto top-0 fixed left-0 right-0 transition-all duration-400 ease-in-out">
+            <div className={`navbar xl:px-24 ${isSticky ? "shadow-md bg-base-100" : "transition-all duration-400 ease-in-out"} `}>
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -78,7 +94,7 @@ const Navbar = () => {
                     </a>
                 </div>
             </div>
-        </div >
+        </header >
     )
 }
 
