@@ -25,7 +25,7 @@ const Navbar = () => {
                 <details>
                     <summary>Menu</summary>
                     <ul className="p-2">
-                        <li><a>All</a></li>
+                        <li><a href="/menu">All</a></li>
                         <li><a>Pasta</a></li>
                         <li><a>Pizza</a></li>
                     </ul>

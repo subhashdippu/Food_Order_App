@@ -5,13 +5,16 @@ import "../App.css"
 import Footer from '../Components/Footer'
 const Main = () => {
     return (
-        <div>
-            <>
-                <Navbar />
+
+        <>
+            <Navbar />
+            <div className="min-h-screen">
                 <Outlet />
-                <Footer />
-            </>
-        </div>
+
+            </div>
+            <Footer />
+        </>
+
     )
 }
 

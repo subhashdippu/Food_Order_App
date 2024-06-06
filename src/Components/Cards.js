@@ -20,7 +20,7 @@ const Cards = ({ item }) => {
 
                 <figure>
                     <img src={item.image}
-                        className="hover:scale-105 translate-all duration-200 h-72"
+                        className="hover:scale-105 translate-all duration-200 md:h-32 gap-10"
                     />
                 </figure>
             </Link>
@@ -30,7 +30,7 @@ const Cards = ({ item }) => {
 
                 </Link>
 
-                <p>Description of title</p>
+                <p>{item.recipe}</p>
                 <div className="card-actions justify-between items-center mt-2">
                     <h5 className="font-semibold">
                         <span className="text-sm text-red">$ </span> {item.price}
