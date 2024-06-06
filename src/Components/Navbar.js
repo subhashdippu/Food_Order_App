@@ -17,7 +17,7 @@ const Navbar = () => {
         return () => {
             window.addEventListener("scroll", handleScroll)
         }
-    })
+    }, [])
     const navItems = (
         <>
             <li><a href="/" >Home</a></li>
