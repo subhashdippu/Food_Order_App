@@ -31,8 +31,10 @@ const Cards = ({ item }) => {
                 </Link>
 
                 <p>Description of title</p>
-                <div className="card-actions justify-end">
-                    <h5><span>$</span>{item.price}</h5>
+                <div className="card-actions justify-between items-center mt-2">
+                    <h5 className="font-semibold">
+                        <span className="text-sm text-red">$ </span> {item.price}
+                    </h5>
                     <button className="btn btn-primary">Buy Now</button>
                 </div>
 
