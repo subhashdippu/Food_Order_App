@@ -4,6 +4,7 @@ import Categories from './Categories'
 import SpecialDishes from '../Components/SpecialDishes'
 import Testimonial from './Testimonial'
 import OurServices from './OurServices'
+
 const Home = () => {
     return (
         <div>
