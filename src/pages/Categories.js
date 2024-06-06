@@ -19,7 +19,7 @@ const Categories = () => {
             <div className="flex flex-col sm:flex-row flex-wrap gap-5 justify-around items-center mt-12">
                 {
                     categoriesItems.map((items, i) => (
-                        <div key={i} className="shadow-lg rounded-md bg-white py-6 p-x-5 w-70 mx-auto text-center cursor-pointer hover: -translate-y-6 duration-300">
+                        <div key={i} className="shadow-lg rounded-md bg-white py-6 p-x-5 w-70 mx-auto text-center cursor-pointer hover:scale-105 translate-all duration-400 ">
                             <div className="flex w-full mx-auto items-center justify-center">
                                 <img src={items.image} alt="" className="bg-[#C1F1C6] p-5 rounded-full w-28 h-28" />
                             </div>
