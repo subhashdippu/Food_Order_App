@@ -226,7 +226,7 @@
     {
         "_id": "642c155b2c4774f05c36ee8d",
         "name": "Chicken and Walnut Salad",
-        "recipe": "Pan roasted pork belly with gratin potato, braised Savoy cabbage, apples, thyme and calvados jus",
+        "recipe": "Desert roasted pork belly with gratin potato, braised Savoy cabbage, apples, thyme and calvados jus",
         "image": "https://i.ibb.co/qJCmcpC/img2.png",
         "category": "dessert",
         "price": 13.5
@@ -242,7 +242,7 @@
     {
         "_id": "642c155b2c4774f05c36eea7",
         "name": "Fish Parmentier",
-        "recipe": "Sautéed breaded veal escalope with watercress, lemon and veal jus.",
+        "recipe": "Salad breaded veal escalope with watercress, lemon and veal jus.",
         "image": "https://i.ibb.co/qJCmcpC/img2.png",
         "category": "salad",
         "price": 9.5
@@ -298,7 +298,7 @@
     {
         "_id": "642c155b2c4774f05c36ee8b",
         "name": "Chicken and Walnut Salad",
-        "recipe": "Pan roasted pork belly with gratin potato, braised Savoy cabbage, apples, thyme and calvados jus",
+        "recipe": "Desert roasted pork belly with gratin potato, braised Savoy cabbage, apples, thyme and calvados jus",
         "image": "https://i.ibb.co/qJCmcpC/img2.png",
         "category": "dessert",
         "price": 13.5
@@ -354,7 +354,7 @@
     {
         "_id": "642c155b2c4774f05c36ee93",
         "name": "Tuna Niçoise",
-        "recipe": "Warm goats cheese and roasted vegetable salad with black olive tapenade crostini",
+        "recipe": "Pizza goats cheese and roasted vegetable salad with black olive tapenade crostini",
         "image": "https://i.ibb.co/W5T6Gmj/img3.png",
         "category": "pizza",
         "price": 10.5
@@ -370,7 +370,7 @@
     {
         "_id": "642c155b2c4774f05c36ee9b",
         "name": "Goats Cheese Pizza",
-        "recipe": "Roasted duck breast (served pink) with gratin potato and a griottine cherry sauce",
+        "recipe": "Pizza duck breast (served pink) with gratin potato and a griottine cherry sauce",
         "image": "https://i.ibb.co/HCrDdk6/img1.png",
         "category": "pizza",
         "price": 14.5
@@ -378,7 +378,7 @@
     {
         "_id": "642c155b2c4774f05c36eeb7",
         "name": "Fish Parmentier",
-        "recipe": "Sautéed breaded veal escalope with watercress, lemon and veal jus.",
+        "recipe": "Salad breaded veal escalope with watercress, lemon and veal jus.",
         "image": "/images/recipes/img1.png",
         "category": "soup",
         "price": 9.5
@@ -394,7 +394,7 @@
     {
         "_id": "642c155b2c4774f05c36ee9d",
         "name": "Goats Cheese Pizza",
-        "recipe": "Roasted duck breast (served pink) with gratin potato and a griottine cherry sauce",
+        "recipe": "Pizza duck breast (served pink) with gratin potato and a griottine cherry sauce",
         "image": "/images/recipes/img1.png",
         "category": "pizza",
         "price": 14.5
@@ -402,7 +402,7 @@
     {
         "_id": "642c155b2c4774f05c36eeac",
         "name": "Roasted Pork Belly",
-        "recipe": "Chargrilled chicken with avocado, baby gem lettuce, baby spinach, shallots, French beans, walnuts, croutons and a mustard dressing",
+        "recipe": "Salad chicken with avocado, baby gem lettuce, baby spinach, shallots, French beans, walnuts, croutons and a mustard dressing",
         "image": "https://i.ibb.co/HCrDdk6/img1.png",
         "category": "salad",
         "price": 14.5
@@ -410,7 +410,7 @@
     {
         "_id": "642c155b2c4774f05c36eeb4",
         "name": "Haddock",
-        "recipe": "Chargrilled fresh tuna steak (served medium rare) on classic Niçoise salad with French beans.",
+        "recipe": "Soup fresh tuna steak (served medium rare) on classic Niçoise salad with French beans.",
         "image": "https://i.ibb.co/HCrDdk6/img1.png",
         "category": "soup",
         "price": 14.7
@@ -418,7 +418,7 @@
     {
         "_id": "642c155b2c4774f05c36ee98",
         "name": "Breton Fish Stew",
-        "recipe": "Chargrilled chicken with avocado, baby gem lettuce, baby spinach, shallots, French beans, walnuts, croutons and a mustard dressing",
+        "recipe": "Pizza chicken with avocado, baby gem lettuce, baby spinach, shallots, French beans, walnuts, croutons and a mustard dressing",
         "image": "https://i.ibb.co/HCrDdk6/img1.png",
         "category": "pizza",
         "price": 12.9

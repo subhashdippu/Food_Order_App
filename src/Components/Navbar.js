@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { MdOutlineAddIcCall } from "react-icons/md";
+import { FaRegUser } from "react-icons/fa";
 const Navbar = () => {
 
     const [isSticky, setStricky] = useState(false);
@@ -89,9 +89,21 @@ const Navbar = () => {
                         </div>
                     </div>
 
-                    <a className="btn bg-blue rounded-full px-6 text-white flex items-center gap-2">
-                        <MdOutlineAddIcCall />
-                    </a>
+                    <button className="btn bg-blue rounded-full px-6 text-white flex items-center gap-2" onClick={() => document.getElementById('my_modal_5').showModal()}>
+                        <FaRegUser /> Login
+                    </button>
+                    <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+                        <div className="modal-box">
+                            <h3 className="font-bold text-lg">Hello!</h3>
+                            <p className="py-4">Press ESC key or click the button below to close</p>
+                            <div className="modal-action">
+                                <form method="dialog">
+                                    {/* if there is a button in form, it will close the modal */}
+                                    <button className="btn">Close</button>
+                                </form>
+                            </div>
+                        </div>
+                    </dialog>
                 </div>
             </div>
         </header >

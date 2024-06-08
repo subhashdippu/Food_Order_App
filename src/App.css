@@ -19,3 +19,9 @@ header {
 .heartStar{
   border-radius: 0px 28px 0px 28px;
 }
+
+.active {
+  color: rgb(225, 225, 227);
+  background: rgb(57, 57, 196);
+  border-radius: 5px;
+}
