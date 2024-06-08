@@ -3,6 +3,7 @@ import React from "react";
 import Main from "../layout/Main.js";
 import Home from "../pages/Home.js";
 import Menu from "../pages/shop/Menu.js";
+import Signup from "../Components/Signup.js";
 
 const router = createBrowserRouter([
     {
@@ -16,7 +17,11 @@ const router = createBrowserRouter([
             {
                 path: "/menu",
                 element: <Menu />
-            }
+            },
+            {
+                path: "/signup",
+                element: <Signup />
+            },
         ]
     },
 ]);
