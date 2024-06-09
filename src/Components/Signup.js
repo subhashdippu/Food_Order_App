@@ -36,6 +36,13 @@ const Signup = () => {
                     <div className="form-control mt-6">
                         <input type="submit" value="SignUp" className="btn bg-blue text-white" />
                     </div>
+                    {/* close btn */}
+                    <Link
+                        to="/"
+                        className="btn btn-sm btn-circle btn-ghost absolute "
+                    >
+                        ✕
+                    </Link>
                     <p className="text-center my-2">Already have an account? {" "}
                         <button className="underline text-red ml-2" onClick={() => document.getElementById('my_modal_5').showModal()}>Login!</button>{" "}
                     </p>

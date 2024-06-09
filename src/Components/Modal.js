@@ -46,7 +46,7 @@ const Modal = () => {
                             ✕
                         </div>
                         <p className="text-center my-2">Don't have an account?{" "}
-                            <Link to="/signup" className="underline text-red ml-2">SignUp!</Link>{" "}
+                            <Link to="/signup" className="underline text-red ml-2" onClick={() => document.getElementById("my_modal_5").close()}>SignUp!</Link>{" "}
                         </p>
                     </form>
                     {/* Social meadia signin */}
