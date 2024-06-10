@@ -7,9 +7,10 @@ import {
     signInWithEmailAndPassword,
     signInWithPopup,
     signOut,
-    updateProfile
+    updateProfile,
+    // loading
 } from 'firebase/auth';
-import app from "../../firebase/firebase.config"
+import app from "../firebase/firebase.config"
 
 export const AuthContext = createContext();
 const auth = getAuth(app)
@@ -18,28 +19,40 @@ const GoogleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
 
-    const [user, setUser] = useState("fsakjshdkjfhn");
-    const [loading, setLoading] = useState(true)
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(false)
     // create an account
 
     const createUser = (email, password) => {
-        return createUserWithEmailAndPassword(auth, email, password)
+        setLoading(true);
+
+        return createUserWithEmailAndPassword(auth, email, password);
     };
 
     // signup with gmail
     const signUpWithGmail = () => {
+        setLoading(true);
         return signInWithPopup(auth, GoogleProvider)
     }
 
     // login with email and password
     const login = (email, password) => {
-        return signInWithEmailAndPassword(auth, email, password)
-    }
+        return signInWithEmailAndPassword(auth, email, password);
+    };
 
     // signout
     const logout = () => {
+        // localStorage.removeItem("genius-token");
         return signOut(auth);
-    }
+    };
+
+    const updateUserProfile = (name, photoURL) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: photoURL,
+        });
+    };
+
 
     // Check user signedIn
     useEffect(() => {
@@ -55,18 +68,14 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
-    const updateUserProfile = (name, photoURL) => {
-        return updateProfile(auth.currentUser, {
-            displayName: name, photoURL: photoURL
-
-        });
-    }
     const authInfo = {
         user,
         createUser,
         signUpWithGmail,
         login,
-        updateUserProfile
+        logout,
+        updateUserProfile,
+        loading,
     }
     return (
         <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

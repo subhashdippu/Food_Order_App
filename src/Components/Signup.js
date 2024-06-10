@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useForm } from "react-hook-form"
 import { FaFacebook, FaGoogle, FaMicrosoft } from "react-icons/fa";
-import { AuthContext } from './context/AuthProvider';
+import { AuthContext } from '../context/AuthProvider';
 const Signup = () => {
     const {
         register,

@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { FaRegUser } from "react-icons/fa";
 import Modal from './Modal';
-import { AuthContext } from './context/AuthProvider';
+import { AuthContext } from '../context/AuthProvider';
+import Profile from './Profile';
 const Navbar = () => {
     const { user } = useContext(AuthContext)
     console.log(user)
@@ -91,10 +92,16 @@ const Navbar = () => {
                             <span className="badge badge-sm indicator-item">8</span>
                         </div>
                     </div>
-
-                    <button className="btn bg-blue rounded-full px-6 text-white flex items-center gap-2" onClick={() => document.getElementById('my_modal_5').showModal()}>
+                    {
+                        user ? <>
+                            <Profile user={user} />
+                        </> : <button className="btn bg-blue rounded-full px-6 text-white flex items-center gap-2" onClick={() => document.getElementById('my_modal_5').showModal()}>
+                            <FaRegUser /> Login
+                        </button>
+                    }
+                    {/* <button className="btn bg-blue rounded-full px-6 text-white flex items-center gap-2" onClick={() => document.getElementById('my_modal_5').showModal()}>
                         <FaRegUser /> Login
-                    </button>
+                    </button> */}
                     <Modal />
                 </div>
             </div>
