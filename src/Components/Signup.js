@@ -1,7 +1,8 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useForm } from "react-hook-form"
 import { FaFacebook, FaGoogle, FaMicrosoft } from "react-icons/fa";
+import { AuthContext } from './context/AuthProvider';
 const Signup = () => {
     const {
         register,
@@ -9,8 +10,28 @@ const Signup = () => {
         watch,
         formState: { errors },
     } = useForm()
+    const authContext = useContext(AuthContext)
+    const createUser = authContext.createUser;
+    const login = authContext.login
 
-    const onSubmit = (data) => console.log(data)
+    const loction = useLocation();
+    const navigate = useNavigate();
+
+    const from = loction.state?.form.pathname || "/"
+
+    const onSubmit = (data) => {
+        const email = data.email;
+        const password = data.password;
+        createUser(email, password).then((result) => {
+            const user = result.user
+            // alert("Account created")
+            document.getElementById("my_modal_5").close();
+            navigate(from, { replace: true })
+        }).catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.errorMessage
+        })
+    }
     return (
         <div className="max-w-md bg-white shadow w-full mx-auto text-center justify-center my-20 rounded-2xl">
             <div className="modal-action flex flex-col justify-center ">

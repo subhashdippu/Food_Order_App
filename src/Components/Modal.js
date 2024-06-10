@@ -1,16 +1,52 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useForm } from "react-hook-form"
 import { FaFacebook, FaGoogle, FaMicrosoft } from "react-icons/fa";
+import { AuthContext } from './context/AuthProvider';
 const Modal = () => {
+
     const {
         register,
         handleSubmit,
         watch,
         formState: { errors },
     } = useForm()
+    // const [signUpWithGmail] = useContext(AuthContext)
+    const authContext = useContext(AuthContext)
+    const signUpWithGmail = authContext.signUpWithGmail;
+    const login = authContext.login
+    const [errorMessage, setErrorMessage] = useState("")
 
-    const onSubmit = (data) => console.log(data)
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const from = location.state?.form?.pathname || "/"
+
+    const onSubmit = (data) => {
+        const email = data.email;
+        const password = data.password;
+        // console.log(email, password)
+        login(email, password)
+            .then((result) => {
+                const user = result.user
+                // alert("Login successful");
+                document.getElementById("my_modal_5").close();
+                navigate(from, { replace: true })
+            }).catch((error) => {
+                const errorMessage = error.message
+                setErrorMessage("Provide a correct email and password")
+            })
+    }
+
+    const handleLogin = () => {
+        signUpWithGmail()
+            .then((result) => {
+                const user = result.user;
+                alert("Login Successful")
+            })
+            .catch((errors) => console.log(errors))
+    }
+
     return (
         <dialog id="my_modal_5" className="modal modal-middle sm:modal-middle">
             <div className="modal-box">
@@ -37,6 +73,12 @@ const Modal = () => {
                         <div className="form-control mt-6">
                             <input type="submit" value="Login" className="btn bg-blue text-white" />
                         </div>
+                        {/* Error message*/}
+                        {
+                            errorMessage ? <p className="text-red text-xs">{errorMessage}</p> : ""
+                        }
+
+
                         {/* close btn */}
                         <div
                             htmlFor="my_modal_5"
@@ -51,7 +93,10 @@ const Modal = () => {
                     </form>
                     {/* Social meadia signin */}
                     <div className="text-center">
-                        <button className="btn btn-circle hover:bg-blue text-black m-4">
+                        <button className="btn btn-circle hover:bg-blue text-black m-4"
+                            onClick={handleLogin
+
+                            }>
                             <FaGoogle />
                         </button>
                         <button className="btn btn-circle hover:bg-blue text-black m-4">

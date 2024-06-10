@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { FaRegUser } from "react-icons/fa";
 import Modal from './Modal';
+import { AuthContext } from './context/AuthProvider';
 const Navbar = () => {
-
+    const { user } = useContext(AuthContext)
+    console.log(user)
     const [isSticky, setStricky] = useState(false);
     useEffect(() => {
         const handleScroll = () => {
