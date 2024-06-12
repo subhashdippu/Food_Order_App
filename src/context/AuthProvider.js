@@ -8,8 +8,9 @@ import {
     signInWithPopup,
     signOut,
     updateProfile,
-    // loading
-} from 'firebase/auth';
+    loading
+}
+    from 'firebase/auth';
 import app from "../firebase/firebase.config"
 
 export const AuthContext = createContext();
@@ -42,7 +43,6 @@ const AuthProvider = ({ children }) => {
 
     // signout
     const logout = () => {
-        // localStorage.removeItem("genius-token");
         return signOut(auth);
     };
 
@@ -60,7 +60,7 @@ const AuthProvider = ({ children }) => {
             if (currentUser) {
                 setUser(currentUser)
                 setLoading(false)
-                const uid = user.uid;
+                // const uid = user.uid;
             }
         });
         return () => {

@@ -1,11 +1,66 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { FaHeart } from "react-icons/fa";
+import { AuthContext } from '../context/AuthProvider';
+import Swal from 'sweetalert2'
 
 const Cards = ({ item }) => {
+    const { name, image, price, recipe, _id } = item
     const [isHeartFilled, setHeartFilled] = useState(false)
     const handleHeartClick = () => {
         setHeartFilled(!isHeartFilled)
+    }
+    const { user } = useContext(AuthContext);
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    const handleAddToCart = (item) => {
+        console.log("add to cart clokced", item);
+        if (user && user?.email) {
+            const cartItem = {
+                menuItemId: _id,
+                name,
+                quantity: 1,
+                image,
+                price,
+                email: user.email,
+            };
+            // console.log(cartItem)
+            fetch("http://localhost:3001/carts", {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json",
+                },
+                body: JSON.stringify(cartItem),
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.insertedId) {
+                        Swal.fire({
+                            position: "top-middle",
+                            icon: "success",
+                            title: "Item added to the cart",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                })
+        }
+        else {
+            Swal.fire({
+                title: "Please login...",
+                text: "You won't be able to add items to the cart!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "SignUp/LogIn"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/signup', { state: { form: location } })
+                }
+            });
+        }
     }
     return (
 
@@ -35,7 +90,7 @@ const Cards = ({ item }) => {
                     <h5 className="font-semibold">
                         <span className="text-sm text-red">$ </span> {item.price}
                     </h5>
-                    <button className="btn btn-primary">Buy Now</button>
+                    <button className="btn btn-primary" onClick={() => handleAddToCart(item)}>Buy Now</button>
                 </div>
 
             </div>

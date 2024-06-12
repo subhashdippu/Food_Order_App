@@ -5,6 +5,9 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{html,js}",
   ],
+  // daisyui: {
+  //   themes: "black",
+  // },
   theme: {
     extend: {
       colors: {
@@ -17,4 +20,5 @@ export default {
     },
   },
   plugins: [require("daisyui")],
+
 };

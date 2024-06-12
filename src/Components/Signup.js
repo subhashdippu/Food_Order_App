@@ -14,10 +14,10 @@ const Signup = () => {
     const createUser = authContext.createUser;
     const login = authContext.login
 
-    const loction = useLocation();
+    const location = useLocation();
     const navigate = useNavigate();
 
-    const from = loction.state?.form.pathname || "/"
+    const from = location.state?.form.pathname || "/"
 
     const onSubmit = (data) => {
         const email = data.email;
